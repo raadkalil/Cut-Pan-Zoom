@@ -55,7 +55,7 @@ const navigate = useNavigate();
 
         {/* Legal copyrights */}
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center text-[11px] text-soft-cream/40 font-mono uppercase tracking-wider">
-          <p>© {currentYear} Cut, Pan, Zoom. All rights reserved.</p>
+          <p>© {currentYear} ReelBox. All rights reserved.</p>
           <div className="flex gap-4">
             <Link to="/terms-of-service" className="hover:text-deep-burgundy transition duration-150 cursor-pointer">Terms of Service</Link>
             <span>•</span>
