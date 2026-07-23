@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { motion } from "motion/react";
 import { Film } from "lucide-react";
 
@@ -8,6 +8,23 @@ interface NavbarProps {
 }
 
 export default function Navbar({ onCtaClick }: NavbarProps) {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavClick = (sectionId: string) => {
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) element.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
   return (
     <motion.header
       initial={{ y: -30, opacity: 0 }}
@@ -32,31 +49,31 @@ export default function Navbar({ onCtaClick }: NavbarProps) {
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
-          <a
-            href="/#what-you-will-learn"
-            className="relative text-[11px] font-medium uppercase tracking-wider text-soft-cream/70 transition-all duration-300 hover:text-warm-gold"
-          >
-            Learn
-          </a>
-          <a
-            href="/#chapters-preview"
-            className="relative text-[11px] font-medium uppercase tracking-wider text-soft-cream/70 transition-all duration-300 hover:text-warm-gold"
-          >
-            Chapters
-          </a>
-          <a
-            href="/#who-is-it-for"
-            className="relative text-[11px] font-medium uppercase tracking-wider text-soft-cream/70 transition-all duration-300 hover:text-warm-gold"
-          >
-            Audience
-          </a>
-          <a
-            href="/#faq"
-            className="relative text-[11px] font-medium uppercase tracking-wider text-soft-cream/70 transition-all duration-300 hover:text-warm-gold"
-          >
-            FAQ
-          </a>
-        </nav>
+  <button
+    onClick={() => handleNavClick("what-you-will-learn")}
+    className="relative text-[11px] font-medium uppercase tracking-wider text-soft-cream/70 transition-all duration-300 hover:text-warm-gold cursor-pointer bg-transparent border-none"
+  >
+    Learn
+  </button>
+  <button
+    onClick={() => handleNavClick("chapters-preview")}
+    className="relative text-[11px] font-medium uppercase tracking-wider text-soft-cream/70 transition-all duration-300 hover:text-warm-gold cursor-pointer bg-transparent border-none"
+  >
+    Chapters
+  </button>
+  <button
+    onClick={() => handleNavClick("audience-section")}
+    className="relative text-[11px] font-medium uppercase tracking-wider text-soft-cream/70 transition-all duration-300 hover:text-warm-gold cursor-pointer bg-transparent border-none"
+  >
+    Audience
+  </button>
+  <button
+    onClick={() => handleNavClick("faq")}
+    className="relative text-[11px] font-medium uppercase tracking-wider text-soft-cream/70 transition-all duration-300 hover:text-warm-gold cursor-pointer bg-transparent border-none"
+  >
+    FAQ
+  </button>
+</nav>
 
         <div>
           <button
