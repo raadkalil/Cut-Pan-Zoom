@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { motion } from "motion/react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
