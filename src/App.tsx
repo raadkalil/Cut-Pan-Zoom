@@ -132,7 +132,7 @@ function HomePage() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Cut-Pan-Zoom">
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
