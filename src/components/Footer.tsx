@@ -1,7 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Film } from "lucide-react";
 
 export default function Footer() {
+const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavClick = (sectionId: string) => {
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) element.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+  
   const currentYear = new Date().getFullYear();
 
   return (
@@ -25,13 +43,13 @@ export default function Footer() {
           </Link>
 
           {/* Quick links footer */}
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-xs text-soft-cream/60">
-            <a href="/#what-you-will-learn" className="transition hover:text-deep-burgundy font-medium">What You'll Learn</a>
-            <a href="/#chapters-preview" className="transition hover:text-deep-burgundy font-medium">Chapters</a>
-            <a href="/#who-is-it-for" className="transition hover:text-deep-burgundy font-medium">Who It's For</a>
-            <a href="/#specs-section" className="transition hover:text-deep-burgundy font-medium">Specifications</a>
-            <a href="/#faq" className="transition hover:text-deep-burgundy font-medium">FAQ</a>
-          </div>
+         <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-xs text-soft-cream/60">
+  <button onClick={() => handleNavClick("what-you-will-learn")} className="transition hover:text-deep-burgundy font-medium bg-transparent border-none cursor-pointer">What You'll Learn</button>
+  <button onClick={() => handleNavClick("chapters-preview")} className="transition hover:text-deep-burgundy font-medium bg-transparent border-none cursor-pointer">Chapters</button>
+  <button onClick={() => handleNavClick("who-is-it-for")} className="transition hover:text-deep-burgundy font-medium bg-transparent border-none cursor-pointer">Who It's For</button>
+  <button onClick={() => handleNavClick("specs-section")} className="transition hover:text-deep-burgundy font-medium bg-transparent border-none cursor-pointer">Specifications</button>
+  <button onClick={() => handleNavClick("faq")} className="transition hover:text-deep-burgundy font-medium bg-transparent border-none cursor-pointer">FAQ</button>
+</div>
 
         </div>
 
