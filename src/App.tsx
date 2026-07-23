@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { motion } from "motion/react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -132,7 +132,7 @@ function HomePage() {
 
 export default function App() {
   return (
-    <BrowserRouter basename="/Cut-Pan-Zoom">
+    <Router>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -140,6 +140,6 @@ export default function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/refund-policy" element={<RefundPolicy />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
