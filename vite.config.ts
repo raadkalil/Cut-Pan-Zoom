@@ -5,6 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    base: '/Cut-Pan-Zoom/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
