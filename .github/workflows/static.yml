@@ -27,15 +27,19 @@ jobs:
           node-version: 22
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd Cut-Pan-Zoom || true
+          npm install
 
       - name: Build
-        run: npm run build
+        run: |
+          cd Cut-Pan-Zoom || true
+          npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: './Cut-Pan-Zoom/dist'
 
   deploy:
     environment:
