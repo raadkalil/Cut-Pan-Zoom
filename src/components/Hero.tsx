@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { motion } from "motion/react";
+import ThreeDBookModal from "./ThreeDBookModal";
 import { BookOpen, Sparkles, ArrowRight, Video, Aperture, RefreshCw } from "lucide-react";
 import InteractiveBook from "./InteractiveBook";
 
@@ -8,7 +10,10 @@ interface HeroProps {
 }
 
 export default function Hero({ onCtaClick, coverImagePath }: HeroProps) {
+  const [is3DOpen, setIs3DOpen] = useState(false);
+  
   return (
+    
     <section className="relative overflow-hidden pt-12 pb-24 sm:pt-16 sm:pb-32 lg:pt-24 lg:pb-40 bg-smoky-black border-b border-black/10" id="hero-section">
       
       {/* Exquisite technical dot grid pattern for filmmaker blueprint aesthetic */}
@@ -126,11 +131,21 @@ export default function Hero({ onCtaClick, coverImagePath }: HeroProps) {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex justify-center lg:col-span-5"
           >
-            <InteractiveBook coverImagePath={coverImagePath} />
+
+          <div className="flex flex-col items-center gap-4">
+  <InteractiveBook coverImagePath={coverImagePath} />
+  <button
+    onClick={() => setIs3DOpen(true)}
+    className="inline-flex items-center gap-2 rounded-lg border border-warm-gold/30 bg-black/40 px-4 py-2.5 text-xs font-mono font-semibold uppercase tracking-wider text-warm-gold hover:border-warm-gold transition duration-300 cursor-pointer shadow-lg hover:text-soft-cream"
+  >
+    👁️ View 3D Interactive Model
+  </button>
+</div>
           </motion.div>
 
         </div>
       </div>
+      <ThreeDBookModal isOpen={is3DOpen} onClose={() => setIs3DOpen(false)} />
     </section>
   );
 }
