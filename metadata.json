@@ -1,0 +1,8 @@
+{
+  "name": "Cut, Pan, Zoom Landing Page",
+  "description": "Single-page landing page for 'Cut, Pan, Zoom: The Essential Film Terms Handbook' — an elegant visual guide to 60+ filmmaking terms.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
