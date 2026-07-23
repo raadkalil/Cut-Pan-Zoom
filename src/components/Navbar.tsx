@@ -62,7 +62,7 @@ export default function Navbar({ onCtaClick }: NavbarProps) {
     Chapters
   </button>
   <button
-    onClick={() => handleNavClick("audience-section")}
+onClick={() => handleNavClick("who-is-it-for")}
     className="relative text-[11px] font-medium uppercase tracking-wider text-soft-cream/70 transition-all duration-300 hover:text-warm-gold cursor-pointer bg-transparent border-none"
   >
     Audience
